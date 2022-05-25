@@ -64,3 +64,21 @@ sudo systemctl daemon-reload && sudo systemctl enable zabbix-agent2
 sudo systemctl restart zabbix-agent2
 journalctl -u zabbix-agent2 -f
 ```
+
+Clean Up Existing Monitoring (Prometheus, Node Exporter)
+
+Disable old services:
+```bash
+sudo systemctl disable node_exporter
+sudo systemctl disable prometheus
+```
+
+Close port 9093 (old Prometheus port):
+```bash
+sudo ufw status numbered
+
+# delete both 9093 ports from list (example #'s below)
+
+sudo ufw delete #4
+sudo ufw delete #9
+```
