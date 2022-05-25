@@ -25,6 +25,7 @@ Add repository and update `apt`:
 ```bash
 wget https://repo.zabbix.com/zabbix/5.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
 sudo dpkg -i zabbix-release_5.4-1+ubuntu20.04_all.deb && sudo apt update
+rm -rf zabbix-release_5.4-1+ubuntu20.04_all.deb
 ```
 Install zabbix-agent2 with `apt`:
 ```bash
@@ -50,7 +51,6 @@ sudo sed -i 's/Server=127.0.0.1/Server='"${SERVER}"'/g' /etc/zabbix/zabbix_agent
 
 ```bash
 sudo curl -o /etc/zabbix/zabbix_agent2.d/zab.userparameters.cosmos.conf https://raw.githubusercontent.com/gh0stdotexe/cosmozab/main/zabbix_agent2.d/zab.userparameters.cosmos.conf
-rm -rf zabbix-release_5.4-1+ubuntu20.04_all.deb
 ```
 
 Update UFW for Zabbix port
