@@ -55,7 +55,7 @@ sudo curl -o /etc/zabbix/zabbix_agent2.d/zab.userparameters.cosmos.conf https://
 
 Update UFW for Zabbix port
 ```bash
-sudo ufw allow 10050/tcp
+sudo ufw allow from <zabbix-server-address> to any port 10050
 ```
 
 Enable and restart agent
