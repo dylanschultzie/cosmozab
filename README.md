@@ -49,12 +49,18 @@ sudo sed -i 's/Server=127.0.0.1/Server='"${SERVER}"'/g' /etc/zabbix/zabbix_agent
 `curl` config file from repo
 
 ```bash
-sudo curl -o /etc/zabbix/zabbix_agent2.d/zab.userparameters.cosmos.conf https://raw.githubusercontent.com/nullmames/cosmozab/main/zabbix_agent2.d/zab.userparameters.cosmos.conf
+sudo curl -o /etc/zabbix/zabbix_agent2.d/zab.userparameters.cosmos.conf https://raw.githubusercontent.com/gh0stdotexe/cosmozab/main/zabbix_agent2.d/zab.userparameters.cosmos.conf
+rm -rf zabbix-release_5.4-1+ubuntu20.04_all.deb
+```
+
+Update UFW for Zabbix port
+```bash
+sudo ufw allow 10050/tcp
 ```
 
 Enable and restart agent
 ```bash
-sudo systemctl enable zabbix-agent2
+sudo systemctl daemon-reload && sudo systemctl enable zabbix-agent2
 sudo systemctl restart zabbix-agent2
+journalctl -u zabbix-agent2 -f
 ```
-
