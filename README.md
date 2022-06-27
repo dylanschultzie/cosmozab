@@ -32,6 +32,13 @@ Install zabbix-agent2 with `apt`:
 sudo apt install zabbix-agent2 -y
 ```
 
+Note: if you're running Ubuntu 22.04+, you'll also need to install libssl1.1:
+```
+echo "deb http://security.ubuntu.com/ubuntu impish-security main" | sudo tee /etc/apt/sources.list.d/impish-security.list
+sudo apt update
+sudo apt install libssl1.1 zabbix-agent2 -y
+```
+
 ## Configure zabbix-agent2
 Edit the zabbix-agen2.conf
 
